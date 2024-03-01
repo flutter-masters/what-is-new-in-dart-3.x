@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import '../../core/employee.dart';
-import '../../core/tuples.dart';
+
 
 void main() {
   // before
@@ -15,16 +15,30 @@ void main() {
     ),
   );
 
-  final results = filterEmployees(Tuple2(30, 3000), employees);
+  final results = filterEmployees(
+    Fields(age: 30, salary: 3000),
+    employees,
+  );
+
   print(results.length);
 }
 
+class Fields {
+  final int age;
+  final double salary;
+
+  Fields({
+    required this.age,
+    required this.salary,
+  });
+}
+
 List<Employee> filterEmployees(
-  Tuple2<int, double> fields,
+  Fields fields,
   List<Employee> employees,
 ) {
-  final age = fields.item1;
-  final salary = fields.item2;
+  final age = fields.age;
+  final salary = fields.salary;
   return employees
       .where(
         (e) => e.age >= age && e.salary >= salary,

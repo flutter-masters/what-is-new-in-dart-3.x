@@ -1,6 +1,10 @@
 void main() {
   final state = getState();
 
+  if (state is LoadingState) {
+  } else if (state is LoadedState) {
+  } else if (state is FailedState) {}
+
   switch (state) {
     case LoadingState():
       print('Loading');

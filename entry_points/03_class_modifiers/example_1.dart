@@ -13,3 +13,11 @@ The modifiers do not apply to other declarations like enum, typedef, extension, 
 */
 
 void main() {}
+
+base class Notifier {
+  void addListener() {}
+}
+
+final class StateNotifier extends Notifier {}
+
+
